@@ -7,9 +7,9 @@ export class Project {
   contractSignedOn: Date = new Date();
   budget: number = 0;
   isActive: boolean = false;
-  get isNew(): boolean {
-    return this.id === undefined;
-  }
+  // get isNew(): boolean {
+  //   return this.id === undefined;
+  // }
 
   constructor(initializer?: any) {
     if (!initializer) return;

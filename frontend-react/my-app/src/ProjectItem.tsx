@@ -1,11 +1,11 @@
 import React, { SyntheticEvent }  from 'react';
 import { Project } from './Project';
-import ProjectForm  from './ProjectForm';
+
 import {Callback}  from './ProjectsPage';
 
 import PropTypes from 'prop-types';
 
-class ProjectItem extends React.Component<{ Project : Project , Callback : Callback},{}> {
+class ProjectItem extends React.Component<{ Project : Project , EditPRojectRequested : Callback },{}> {
   static  propTypes = {
     Project: PropTypes.instanceOf(Project)
   };
@@ -13,15 +13,18 @@ class ProjectItem extends React.Component<{ Project : Project , Callback : Callb
     return (
       <div>
            id: {this.props.Project.id} <br/>
-           name: {this.props.Project.name}
+           name: {this.props.Project.name} <br/>
+           description: {this.props.Project.description} <br/>
+           budget: {this.props.Project.budget} <br/>
+           isActive: {this.props.Project.isActive?"true":"false"}
            <br/>
-           <button onClick={(event) => {this.handleClick(event,this.props.Project)}}>click</button>
-           <ProjectForm Project=  {new Project()} />
+           <button onClick={(event) => {this.handleClick(event,this.props.Project)}}>Edit</button>
+          
          </div>
     );
   }
   handleClick = (event: SyntheticEvent, project:Project) => {
-   this.props.Callback(project);
+   this.props.EditPRojectRequested(project);
   }
 }
 

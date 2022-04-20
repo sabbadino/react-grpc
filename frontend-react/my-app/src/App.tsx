@@ -14,9 +14,9 @@ class App extends React.Component <{},AppState>{
   };
   render() {
     return  <div> 
-     <button onClick={this.handleClick}>start Value</button> 
-       <MyComponent startValue={this.state.startValue} ></MyComponent>
-       <p/>
+     {/* <button onClick={this.handleClick}>start Value</button>  */}
+       {/* <MyComponent startValue={this.state.startValue} ></MyComponent>
+       <p/> */}
           <ProjectsPage></ProjectsPage>
     </div>
   }
