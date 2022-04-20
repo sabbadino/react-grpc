@@ -1,13 +1,15 @@
-import React from 'react';
+import React , { SyntheticEvent } from 'react';
 import { MOCK_PROJECTS } from './MockProjects';
-import ProjectsItem from './ProjectsItem';
+import { Project } from './Project';
+import ProjectItem from './ProjectItem';
 
+export type Callback = (Project :Project) => void
 
-class ProjectsPage extends React.Component<{},{}> {
- 
+class ProjectsPage extends React.Component<{}, Project[]> {
+  state: Project[] = MOCK_PROJECTS;
   render() {
-    const projectItems =MOCK_PROJECTS.map((project) => (
-      <ProjectsItem key={project.id} Project={project} />
+    const projectItems =this.state.map((project) => (
+      <ProjectItem key={project.id} Project={project} Callback={this.handleSelectedByChild} />
     ));
     return (
       <div>
@@ -19,6 +21,9 @@ class ProjectsPage extends React.Component<{},{}> {
    
     );
   }
+  handleSelectedByChild:Callback = (project:Project) => {
+    alert(project.name)
+   }
 }
 
 export default ProjectsPage;

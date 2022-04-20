@@ -1,5 +1,5 @@
 export class Project {
-  id: number | undefined;
+  id: number =-1 ;
   name: string = '';
   description: string = '';
   imageUrl: string = '';
